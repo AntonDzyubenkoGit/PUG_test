@@ -3,8 +3,6 @@ h1 {
   background: rgb(10, 76, 255);
 }
 
-.text {
-  font-size: 18px;
-  font-weight: 700;
-  background: rgb(193, 128, 255);
+li {
+  list-style: armenian;
 }
