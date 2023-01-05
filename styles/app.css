@@ -1,8 +1,24 @@
-h1 {
-  color: rgb(255, 251, 0);
-  background: rgb(10, 76, 255);
+body {
+  background: rgb(73, 71, 71);
+  color: antiquewhite;
+  padding: 0 10px;
 }
-
-li {
-  list-style: armenian;
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+nav {
+  display: flex;
+  gap: 25px;
+}
+a {
+  color: antiquewhite;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+p {
+  color: rgb(166, 85, 241);
 }
