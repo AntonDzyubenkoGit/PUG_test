@@ -1,0 +1,144 @@
+main
+-
+  const users = [
+    {
+      name: 'Кодовёнок',
+      surname: 'Хекслетович',
+      login: 'hexlet-code',
+      scores: 1271
+    },
+    {
+      name: 'Король',
+      surname: 'Вёрстки',
+      login: 'king-of-layout',
+      scores: 1100
+    },
+  ];
+
+section.container
+  h2 Рейтинг пользователей
+
+  table
+    thead
+      tr
+        th Имя
+        th Фамилия
+        th Логин
+        th Баллы
+    tbody
+      each user in users
+        tr
+          td= user.name
+          td= user.surname
+          td= user.login
+          td= user.scores
+      else
+        tr
+          td(colspan='4') Нет пользователей
+
+//----------------------------------------------------------------
+-
+  const user_roles = {
+    admin: [
+      {
+        name: 'Nikita',
+        surname: 'Cowboy',
+      },
+    ],
+    moderator: [
+      {
+        name: 'Matew',
+        surname: 'Perry',
+      },
+    ],
+  };
+
+section.roles
+  each people, position in user_roles
+    h2= position
+    ul
+      each user in people
+        li= user.name + ' ' + user.surname
+
+//----------------------------------------------------------------
+-
+  const icons = {
+    free: [
+      {
+        name: 'robot',
+        url: './icons/robot.svg'
+      },
+      {
+        name: 'hexlet',
+        url: './icons/hexlet.svg'
+      }
+    ],
+    premium: [
+      {
+        name: 'cat',
+        url: './icons/premium/cat.svg'
+      },
+      {
+        name: 'dog',
+        url: './icons/premium/dog.svg'
+      }
+    ]
+  };
+
+section.icons
+  each massiveIcons, status in icons
+    h2= status
+    ul
+      each icon in massiveIcons
+        li
+          a(href=icon.url)= icon.name
+
+//----------------------------------------------------------------
+-
+  const contacts = {
+    'А': [
+      {
+        name: 'Александр',
+        surname: 'Хекслетович',
+      },
+      {
+        name: 'Андрей',
+        surname: 'Верстальщиков',
+      },
+      {
+        name: 'Артём',
+        surname: 'Джаваскриптов',
+      },
+    ],
+    'B': [
+      {
+        name: 'Александр',
+        surname: 'Хекслетович',
+      },
+      {
+        name: 'Еуые',
+        surname: 'впрпр',
+      },
+    ],
+  };
+
+section.studens
+  each  students, symbol in contacts
+    h2= symbol
+    ul
+      each student in students
+        li= student.name + ' ' + student.surname
+      else
+        li Нет пользователей
+  else
+    ul
+      li Нет пользователей
+
+
+//----------------------------------------------------------------
+- let count = 1;
+
+ul
+  while count < 10
+    li= "Hello, my number is " + count
+    - count += 2;

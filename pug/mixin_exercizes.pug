@@ -1,0 +1,87 @@
+mixin buttonOrder
+  button.btn.btn-order Оформить заказ
+
++buttonOrder
+
+//----------------------------------------------------------------
+mixin button(title = 'Заказать')
+  button.btn.btn-order= title
+
++button
++button('Заказать товар или ...')
+
+//----------------------------------------------------------------
+-
+  const users = [
+    {
+      name: 'Кодовёнок',
+      surname: 'Хекслетович',
+      login: 'hexlet-code',
+      score: 1271
+    },
+    {
+      name: 'Король',
+      surname: 'Вёрстки',
+      login: 'king-of-layout',
+      score: 1100
+    },
+  ]
+
+  const badUsers = [
+    {
+      name: 'Matt',
+      surname: 'Daimone',
+      login: 'mattDD',
+      score: 615
+    },
+    {
+      name: 'Eshli',
+      surname: 'Gussman',
+      login: 'ga-ga-ga',
+      score: 412
+    }
+  ]
+
+mixin createUserTable(usersData = [])
+  table
+    thead
+      tr
+        th Имя
+        th Фамилия
+        th Логин
+        th Баллы
+    tbody
+      each user in usersData
+        tr
+          td= user.name
+          td= user.surname
+          td= user.login
+          td= user.score
+      else
+        tr
+          td(colspan='4') Пользователи отсутствуют
+
+section
+  h2 Лучшие из лучших
+  +createUserTable(users)
+
+  h2 Худшие из худших
+  +createUserTable(badUsers)
+
+//----------------------------------------------------------------
+mixin article(name, author)
+  .post
+    h2= name
+
+    .post-body
+      if block
+        block
+      else 
+        p No content
+
+    .post-author= author
+
++article('About...', 'Jonn Elton Bowwie')
+    include:markdown-it ../main.md
+
+//----------------------------------------------------------------
