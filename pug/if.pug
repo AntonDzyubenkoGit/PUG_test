@@ -1,0 +1,22 @@
+h1 #{user.name} #{user.surname}
+      nav
+        a(href='#') Настройки
+        if user.role === 'user'
+          .divider
+          a(href='#') Промокод
+          a(href='#') Доступ в подарок
+        else
+          .divider
+          a(href='#') Промокод
+          a(href='#') Доступ в подарок
+          .divider
+          a(href='#') Учительская
+          a(href='#') Менторство
+          a(href='#') Маркетинг
+        .divider
+        a(href='#') Помощь
+        button Выйти
+      if user.role === 'admin' && user.testing
+        section
+          h2 Сводка по тестированию
+          include ./data/testing.pug
