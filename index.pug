@@ -1,2 +1,40 @@
-include pug/head.pug
-  include pug/main.pug
+include ./i18n/pug/ru.pug
+
+-
+  const user = {
+    login: 'hexlet',
+    password: 'hexletpass',
+    name: 'Кодовёнок',
+    surname: 'Хекслетович',
+    role: 'admin',
+    testing: true,
+  };
+
+doctype html
+html(lang= i18n.locale)
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title #{i18n.profile.title}
+  body
+
+    section.profile-links
+      h1 #{user.name} #{user.surname}
+      nav
+        a(href='#') #{i18n.profile.settings}
+        if user.role === 'user'
+          .divider
+          a(href='#') #{i18n.profile.promo}
+          a(href='#') #{i18n.profile.access}
+        else
+          .divider
+          a(href='#') #{i18n.profile.promo}
+          a(href='#') #{i18n.profile.access}
+          .divider
+          a(href='#') #{i18n.profile.teach}
+          a(href='#') #{i18n.profile.mentor}
+          a(href='#') #{i18n.profile.marketing}
+        .divider
+        a(href='#') #{i18n.profile.help}
+        button #{i18n.profile.off}
